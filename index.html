@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GTM 1-Pager</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f4f1; color: #1a1a1a; }
+
+  .page {
+    max-width: 900px;
+    margin: 32px auto;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+
+  .header {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 28px 36px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .header-left h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  .header-left .sub { font-size: 13px; color: #aaa; margin-top: 4px; }
+  .header-right { text-align: right; }
+  .badge {
+    display: inline-block;
+    background: #f0c040;
+    color: #1a1a1a;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .launch-date { font-size: 13px; color: #aaa; margin-top: 6px; }
+
+  .body { padding: 28px 36px; display: grid; gap: 20px; }
+
+  .goal-strip {
+    background: #f9f7f3;
+    border-left: 4px solid #1a1a1a;
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+  }
+  .goal-strip .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 4px; }
+  .goal-strip .text { font-size: 14px; font-weight: 500; line-height: 1.5; }
+  .hook-text { font-style: italic; color: #444; }
+
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .metric {
+    background: #f9f7f3;
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .metric .num { font-size: 24px; font-weight: 800; color: #1a1a1a; }
+  .metric .unit { font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .card {
+    background: #f9f7f3;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .card h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 10px; }
+
+  .audience-list { display: flex; flex-direction: column; gap: 6px; }
+  .audience-item { font-size: 13px; }
+  .audience-item strong { color: #1a1a1a; }
+  .audience-item span { color: #666; }
+
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-item { display: flex; gap: 14px; align-items: flex-start; padding: 6px 0; position: relative; }
+  .tl-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 18px;
+    width: 1px;
+    height: calc(100% - 4px);
+    background: #ddd;
+  }
+  .tl-dot { width: 11px; height: 11px; border-radius: 50%; background: #ddd; flex-shrink: 0; margin-top: 3px; }
+  .tl-dot.active { background: #1a1a1a; }
+  .tl-text { font-size: 13px; line-height: 1.4; }
+  .tl-text .date { font-weight: 700; color: #1a1a1a; display: block; font-size: 12px; }
+  .tl-text .desc { color: #555; }
+
+  .channels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .ch-item {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 7px;
+    padding: 10px 12px;
+  }
+  .ch-name { font-size: 12px; font-weight: 700; margin-bottom: 2px; }
+  .ch-budget { font-size: 11px; color: #888; margin-bottom: 4px; }
+  .ch-goal { font-size: 11px; color: #555; }
+
+  .spotlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .spotlight {
+    border-radius: 7px;
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .spotlight.s1 { background: #1a1a1a; color: #fff; }
+  .spotlight.s2 { background: #f0c040; color: #1a1a1a; }
+  .spotlight.s3 { background: #e8e8e8; color: #1a1a1a; }
+  .spotlight .sp-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; opacity: 0.7; margin-bottom: 4px; }
+  .spotlight .sp-name { font-size: 14px; font-weight: 800; }
+  .spotlight .sp-date { font-size: 11px; margin-top: 4px; opacity: 0.7; }
+
+  .decisions { display: flex; flex-direction: column; gap: 6px; }
+  .decision-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; }
+  .decision-item::before { content: '→'; font-weight: 700; color: #1a1a1a; flex-shrink: 0; }
+
+  .footer {
+    background: #f9f7f3;
+    border-top: 1px solid #ebebeb;
+    padding: 14px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer .owners { font-size: 12px; color: #888; }
+  .footer .owners span { color: #1a1a1a; font-weight: 600; }
+  .at-risk { background: #fff3cd; border: 1px solid #f0c040; border-radius: 6px; padding: 6px 12px; font-size: 12px; color: #6b4f00; }
+
+  [contenteditable="true"] { outline: none; cursor: text; }
+  [contenteditable="true"]:hover { background: rgba(240,192,64,0.1); border-radius: 3px; }
+  [contenteditable="true"]:focus { background: rgba(240,192,64,0.15); border-radius: 3px; }
+
+  .edit-hint { font-size: 11px; color: #bbb; text-align: right; margin-bottom: -12px; font-style: italic; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <h1 contenteditable="true">[Product/Feature] Release GTM</h1>
+      <div class="sub" contenteditable="true">Q[X] [Year] · [Your Name] · [Date]</div>
+    </div>
+    <div class="header-right">
+      <div class="badge" contenteditable="true">Draft</div>
+      <div class="launch-date" contenteditable="true">Launch: [Date] (no-slip)</div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <p class="edit-hint">Click any field to edit</p>
+
+    <div class="goal-strip">
+      <div class="label">Goal</div>
+      <div class="text" contenteditable="true">Drive <strong>[X] incremental registrations</strong> in Q[X] through a hook + spotlight campaign anchored on <span class="hook-text">"[Core Hook — e.g., The only college on your phone for $95]."</span></div>
+    </div>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="num" contenteditable="true">850</div>
+        <div class="unit">Target Regs</div>
+      </div>
+      <div class="metric">
+        <div class="num" contenteditable="true">$650</div>
+        <div class="unit">Avg LTV</div>
+      </div>
+      <div class="metric">
+        <div class="num" contenteditable="true">$123K</div>
+        <div class="unit">Budget</div>
+      </div>
+      <div class="metric">
+        <div class="num" contenteditable="true">4.5x</div>
+        <div class="unit">Target ROAS</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Approach</h3>
+        <div class="audience-list">
+          <div class="audience-item"><strong>Hook Campaign</strong> <span>— unified message across all channels at launch; competitor conquesting + price anchor</span></div>
+          <div class="audience-item" style="margin-top:6px"><strong>Spotlight Series</strong> <span>— drip content post-launch reinforcing key differentiators (Speed → Flexibility → Courses)</span></div>
+          <div class="audience-item" style="margin-top:6px"><strong>Strategy</strong> <span contenteditable="true">— high frequency in communities where target audiences are already active; message repetition to shift behavior and reposition vs. competitors</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Target Audiences</h3>
+        <div class="audience-list">
+          <div class="audience-item"><strong>B2C</strong> <span contenteditable="true">— in-market students at/considering online school; degree hackers</span></div>
+          <div class="audience-item"><strong>Advisors</strong> <span contenteditable="true">— university advisors guiding students toward transfer credits</span></div>
+          <div class="audience-item"><strong>Ambassadors</strong> <span contenteditable="true">— creators and influencers reaching prospective students via YouTube, TikTok, Reddit</span></div>
+          <div class="audience-item"><strong>Members</strong> <span contenteditable="true">— existing subscribers; drive retention, LTV, and feature adoption</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Timeline</h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-text"><span class="date" contenteditable="true">[Date]</span><span class="desc" contenteditable="true">Finalize campaign concept + audience targets</span></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-text"><span class="date" contenteditable="true">[Date]</span><span class="desc" contenteditable="true">Channel plan + budget / resource alignment</span></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-text"><span class="date" contenteditable="true">[Date]</span><span class="desc" contenteditable="true">Asset creation + partner briefs</span></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot active"></div>
+            <div class="tl-text"><span class="date" contenteditable="true">[Launch Date] 🚀</span><span class="desc" contenteditable="true">Full GTM — Hook launch (no-slip date)</span></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-text"><span class="date" contenteditable="true">[Date]</span><span class="desc" contenteditable="true">Spotlight series begins</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Message Flight</h3>
+        <div class="spotlights" style="margin-bottom:10px">
+          <div class="spotlight s1">
+            <div class="sp-label">Hook</div>
+            <div class="sp-name" contenteditable="true">$95 + Conquest</div>
+            <div class="sp-date" contenteditable="true">[Date range]</div>
+          </div>
+          <div class="spotlight s2">
+            <div class="sp-label">Spotlight 1</div>
+            <div class="sp-name" contenteditable="true">Speed</div>
+            <div class="sp-date" contenteditable="true">[Date range]</div>
+          </div>
+          <div class="spotlight s3">
+            <div class="sp-label">Spotlight 2</div>
+            <div class="sp-name" contenteditable="true">Flexibility</div>
+            <div class="sp-date" contenteditable="true">[Date range]</div>
+          </div>
+        </div>
+        <div style="font-size:12px; color:#666" contenteditable="true">All channels run the hook, then drip spotlights. $[price] stays front and center throughout.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Channel Overview</h3>
+      <div class="channels-grid">
+        <div class="ch-item">
+          <div class="ch-name">Ambassador / Influencer</div>
+          <div class="ch-budget" contenteditable="true">Budget: $[X]</div>
+          <div class="ch-goal" contenteditable="true">Long-form videos + shorts; competitor comparison content</div>
+        </div>
+        <div class="ch-item">
+          <div class="ch-name">Paid Media</div>
+          <div class="ch-budget" contenteditable="true">Budget: $[X]</div>
+          <div class="ch-goal" contenteditable="true">PPC conquest + UGC amplification on TT/YT/Reddit</div>
+        </div>
+        <div class="ch-item">
+          <div class="ch-name">Lifecycle (Email + SMS)</div>
+          <div class="ch-budget" contenteditable="true">Budget: N/A</div>
+          <div class="ch-goal" contenteditable="true">Reg abandon → editorial → member; [X] incremental regs</div>
+        </div>
+        <div class="ch-item">
+          <div class="ch-name">Forums (Reddit / Degree Forum)</div>
+          <div class="ch-budget" contenteditable="true">Budget: $[X]</div>
+          <div class="ch-goal" contenteditable="true">Seeded posts + comment replies in top communities</div>
+        </div>
+        <div class="ch-item">
+          <div class="ch-name">College Advisors</div>
+          <div class="ch-budget" contenteditable="true">Budget: N/A</div>
+          <div class="ch-goal" contenteditable="true">Outreach email + shareable PDF; drive referrals</div>
+        </div>
+        <div class="ch-item">
+          <div class="ch-name">EO / Content</div>
+          <div class="ch-budget" contenteditable="true">Budget: N/A</div>
+          <div class="ch-goal" contenteditable="true">Pricing page + FAQ updates; press release for LLM accuracy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Decisions Needed</h3>
+      <div class="decisions">
+        <div class="decision-item" contenteditable="true">Budget approval — $[X] total across paid + owned channels</div>
+        <div class="decision-item" contenteditable="true">Feedback on channel plan to achieve [X] incremental reg target</div>
+        <div class="decision-item" contenteditable="true">Optional lever: [e.g., 30% promo in Nov–Dec] — approve or hold?</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="owners">DRI: <span contenteditable="true">[Name]</span> · Paid: <span contenteditable="true">[Name]</span> · Lifecycle: <span contenteditable="true">[Name]</span> · Ambassadors: <span contenteditable="true">[Name]</span></div>
+    <div class="at-risk" contenteditable="true">⚠ At-risk channels: [e.g., Ambassador, Lifecycle — require fast turnaround]</div>
+  </div>
+
+</div>
+</body>
+</html>
