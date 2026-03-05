@@ -3,307 +3,186 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GTM 1-Pager</title>
+<title>Gen Eds GTM One-Pager</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f4f1; color: #1a1a1a; }
-
-  .page {
-    max-width: 900px;
-    margin: 32px auto;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  }
-
-  .header {
-    background: #1a1a1a;
-    color: #fff;
-    padding: 28px 36px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-  .header-left h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
-  .header-left .sub { font-size: 13px; color: #aaa; margin-top: 4px; }
-  .header-right { text-align: right; }
-  .badge {
-    display: inline-block;
-    background: #f0c040;
-    color: #1a1a1a;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-  .launch-date { font-size: 13px; color: #aaa; margin-top: 6px; }
-
-  .body { padding: 28px 36px; display: grid; gap: 20px; }
-
-  .goal-strip {
-    background: #f9f7f3;
-    border-left: 4px solid #1a1a1a;
-    padding: 14px 18px;
-    border-radius: 0 8px 8px 0;
-  }
-  .goal-strip .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 4px; }
-  .goal-strip .text { font-size: 14px; font-weight: 500; line-height: 1.5; }
-  .hook-text { font-style: italic; color: #444; }
-
-  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .metric {
-    background: #f9f7f3;
-    border-radius: 8px;
-    padding: 14px 16px;
-    text-align: center;
-  }
-  .metric .num { font-size: 24px; font-weight: 800; color: #1a1a1a; }
-  .metric .unit { font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
-
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-  .card {
-    background: #f9f7f3;
-    border-radius: 8px;
-    padding: 16px 18px;
-  }
-  .card h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 10px; }
-
-  .audience-list { display: flex; flex-direction: column; gap: 6px; }
-  .audience-item { font-size: 13px; }
-  .audience-item strong { color: #1a1a1a; }
-  .audience-item span { color: #666; }
-
-  .timeline { display: flex; flex-direction: column; gap: 0; }
-  .tl-item { display: flex; gap: 14px; align-items: flex-start; padding: 6px 0; position: relative; }
-  .tl-item:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: 18px;
-    width: 1px;
-    height: calc(100% - 4px);
-    background: #ddd;
-  }
-  .tl-dot { width: 11px; height: 11px; border-radius: 50%; background: #ddd; flex-shrink: 0; margin-top: 3px; }
-  .tl-dot.active { background: #1a1a1a; }
-  .tl-text { font-size: 13px; line-height: 1.4; }
-  .tl-text .date { font-weight: 700; color: #1a1a1a; display: block; font-size: 12px; }
-  .tl-text .desc { color: #555; }
-
-  .channels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .ch-item {
-    background: #fff;
-    border: 1px solid #e8e8e8;
-    border-radius: 7px;
-    padding: 10px 12px;
-  }
-  .ch-name { font-size: 12px; font-weight: 700; margin-bottom: 2px; }
-  .ch-budget { font-size: 11px; color: #888; margin-bottom: 4px; }
-  .ch-goal { font-size: 11px; color: #555; }
-
-  .spotlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .spotlight {
-    border-radius: 7px;
-    padding: 12px 14px;
-    text-align: center;
-  }
-  .spotlight.s1 { background: #1a1a1a; color: #fff; }
-  .spotlight.s2 { background: #f0c040; color: #1a1a1a; }
-  .spotlight.s3 { background: #e8e8e8; color: #1a1a1a; }
-  .spotlight .sp-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; opacity: 0.7; margin-bottom: 4px; }
-  .spotlight .sp-name { font-size: 14px; font-weight: 800; }
-  .spotlight .sp-date { font-size: 11px; margin-top: 4px; opacity: 0.7; }
-
-  .decisions { display: flex; flex-direction: column; gap: 6px; }
-  .decision-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; }
-  .decision-item::before { content: '→'; font-weight: 700; color: #1a1a1a; flex-shrink: 0; }
-
-  .footer {
-    background: #f9f7f3;
-    border-top: 1px solid #ebebeb;
-    padding: 14px 36px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer .owners { font-size: 12px; color: #888; }
-  .footer .owners span { color: #1a1a1a; font-weight: 600; }
-  .at-risk { background: #fff3cd; border: 1px solid #f0c040; border-radius: 6px; padding: 6px 12px; font-size: 12px; color: #6b4f00; }
-
-  [contenteditable="true"] { outline: none; cursor: text; }
-  [contenteditable="true"]:hover { background: rgba(240,192,64,0.1); border-radius: 3px; }
-  [contenteditable="true"]:focus { background: rgba(240,192,64,0.15); border-radius: 3px; }
-
-  .edit-hint { font-size: 11px; color: #bbb; text-align: right; margin-bottom: -12px; font-style: italic; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #1a1a1a; padding: 24px; }
+  .page { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 36px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+  .badge { display: inline-block; background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 700; letter-spacing: .05em; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; margin-bottom: 8px; }
+  h1 { font-size: 26px; font-weight: 800; margin-bottom: 4px; }
+  .meta { font-size: 13px; color: #666; margin-bottom: 20px; }
+  .launch-bar { background: #1e293b; color: #fff; border-radius: 8px; padding: 10px 18px; font-size: 13px; margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+  .launch-bar strong { font-size: 14px; }
+  .goal-box { background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; font-size: 14px; line-height: 1.6; }
+  .goal-box strong { font-size: 15px; }
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+  .metric { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px; text-align: center; }
+  .metric .val { font-size: 22px; font-weight: 800; color: #0f172a; }
+  .metric .lbl { font-size: 11px; color: #64748b; margin-top: 2px; text-transform: uppercase; letter-spacing: .04em; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+  .section { margin-bottom: 24px; }
+  h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #475569; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; margin-bottom: 12px; }
+  ul { padding-left: 18px; font-size: 13.5px; line-height: 1.7; color: #334155; }
+  .audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .aud-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; font-size: 13px; }
+  .aud-card strong { display: block; font-size: 12px; color: #0f172a; margin-bottom: 2px; }
+  .timeline { list-style: none; padding: 0; }
+  .timeline li { display: flex; gap: 12px; padding: 7px 0; border-bottom: 1px dashed #e2e8f0; font-size: 13px; align-items: flex-start; }
+  .timeline li:last-child { border-bottom: none; }
+  .tl-date { min-width: 90px; font-weight: 700; color: #3b82f6; font-size: 12px; padding-top: 1px; }
+  .flight { display: flex; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+  .pill { background: #eff6ff; border: 1px solid #bfdbfe; color: #1d4ed8; border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 600; }
+  .pill.active { background: #1d4ed8; color: #fff; border-color: #1d4ed8; }
+  .pill.may { background: #f0fdf4; border-color: #86efac; color: #166534; }
+  .pill.jun { background: #fdf4ff; border-color: #e9d5ff; color: #7e22ce; }
+  .channel-list { display: flex; flex-direction: column; gap: 8px; }
+  .ch { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 7px; padding: 10px 14px; }
+  .ch-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
+  .ch-name { font-weight: 700; font-size: 13px; }
+  .ch-budget { font-size: 12px; color: #0f172a; background: #e0f2fe; border-radius: 4px; padding: 1px 7px; font-weight: 600; }
+  .ch-desc { font-size: 12.5px; color: #475569; line-height: 1.5; }
+  .decisions { background: #fff7ed; border: 1.5px solid #fed7aa; border-radius: 8px; padding: 16px 20px; }
+  .decisions ul { padding-left: 16px; font-size: 13.5px; line-height: 1.8; color: #431407; }
+  .positioning { background: #f0f9ff; border: 1.5px solid #bae6fd; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; }
+  .pos-row { display: flex; gap: 10px; margin-bottom: 6px; font-size: 13px; }
+  .pos-row:last-child { margin-bottom: 0; }
+  .pos-label { min-width: 120px; font-weight: 700; color: #0369a1; font-size: 12px; }
+  .pos-text { color: #0c4a6e; }
+  hr.divider { border: none; border-top: 1px solid #e2e8f0; margin: 24px 0; }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <div class="header">
-    <div class="header-left">
-      <h1 contenteditable="true">[Product/Feature] Release GTM</h1>
-      <div class="sub" contenteditable="true">Q[X] [Year] · [Your Name] · [Date]</div>
+  <div class="badge">90% Complete</div>
+  <h1>Gen Eds April Release GTM</h1>
+  <div class="meta">Q2 2026 · Emily &amp; Akshya · March 2026</div>
+
+  <div class="launch-bar">
+    🚀 <strong>Launch: April 1, 2026</strong> &nbsp;·&nbsp; No-slip date &nbsp;·&nbsp; Flight: April 1 – End of June
+  </div>
+
+  <div class="goal-box">
+    Drive <strong>+997 incremental College Saver registrations in Q2</strong> through a hook + spotlight campaign anchored on <em>"Complete your Gen Eds faster and for less with Study.com College Saver."</em> Target: ~75% YoY growth (vs. 62% baseline).
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="val">+997</div><div class="lbl">Incremental Reg Target</div></div>
+    <div class="metric"><div class="val">13,521</div><div class="lbl">Q2 Reg Goal (Total)</div></div>
+    <div class="metric"><div class="val">$170K</div><div class="lbl">Paid Media Budget</div></div>
+    <div class="metric"><div class="val">75%</div><div class="lbl">YoY Growth Target</div></div>
+  </div>
+
+  <div class="positioning">
+    <div class="pos-row"><div class="pos-label">Positioning:</div><div class="pos-text">Study.com College Saver is the <strong>simplest, fastest, most affordable</strong> way to complete Gen Eds.</div></div>
+    <div class="pos-row"><div class="pos-label">Hook:</div><div class="pos-text"><strong>Complete your Gen Eds faster and for less with Study.com College Saver.</strong></div></div>
+    <div class="pos-row"><div class="pos-label">Get → To → By:</div><div class="pos-text">Enrolled &amp; soon-to-enroll online college students → Subscribe to College Saver → Promoting it as the fastest, most affordable way to finish Gen Eds.</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="section">
+      <h2>Approach</h2>
+      <ul>
+        <li><strong>Hook Campaign</strong> — consistent Gen Ed + College Saver positioning across all channels Apr–Jun</li>
+        <li><strong>Spotlight Series</strong> — rotate spotlights under the hook: Course Collections (Apr) → AI Course (late Apr–May) → Revamped Experience (Jun)</li>
+        <li><strong>Strategy</strong> — saturate Gen Ed "faster + for less" value prop; school/program-specific course collections reduce guesswork and lift conversion</li>
+      </ul>
     </div>
-    <div class="header-right">
-      <div class="badge" contenteditable="true">Draft</div>
-      <div class="launch-date" contenteditable="true">Launch: [Date] (no-slip)</div>
+
+    <div class="section">
+      <h2>Target Audiences</h2>
+      <div class="audience-grid">
+        <div class="aud-card"><strong>B2C Students</strong>Enrolled &amp; soon-to-enroll online college students who need Gen Eds</div>
+        <div class="aud-card"><strong>Partner Advisors</strong>University advisors guiding students toward Gen Ed completion &amp; transfer credits</div>
+        <div class="aud-card"><strong>Career/Major Seekers</strong>Nursing, WGU, GCU &amp; program-specific pre-req students</div>
+      </div>
     </div>
   </div>
 
-  <div class="body">
-
-    <p class="edit-hint">Click any field to edit</p>
-
-    <div class="goal-strip">
-      <div class="label">Goal</div>
-      <div class="text" contenteditable="true">Drive <strong>[X] incremental registrations</strong> in Q[X] through a hook + spotlight campaign anchored on <span class="hook-text">"[Core Hook — e.g., The only college on your phone for $95]."</span></div>
+  <div class="section">
+    <h2>Message Pillars</h2>
+    <div class="flight">
+      <div class="pill active">Apr — Course Collections</div>
+      <div class="pill may">Late Apr/May — AI Course</div>
+      <div class="pill jun">June — Revamped Experience</div>
     </div>
-
-    <div class="metrics">
-      <div class="metric">
-        <div class="num" contenteditable="true">850</div>
-        <div class="unit">Target Regs</div>
+    <div class="audience-grid" style="grid-template-columns:1fr 1fr 1fr;margin-top:14px;">
+      <div class="aud-card">
+        <strong>Pillar 1: Transfer Confidence (Apr 1)</strong>
+        Know exactly which Gen Eds you need — by school, degree, or both. Course collections remove the guesswork.
       </div>
-      <div class="metric">
-        <div class="num" contenteditable="true">$650</div>
-        <div class="unit">Avg LTV</div>
+      <div class="aud-card">
+        <strong>Pillar 2: AI for College Credit (Apr 3)</strong>
+        Earn elective credits while learning skills employers want — starting with AI Foundations.
       </div>
-      <div class="metric">
-        <div class="num" contenteditable="true">$123K</div>
-        <div class="unit">Budget</div>
-      </div>
-      <div class="metric">
-        <div class="num" contenteditable="true">4.5x</div>
-        <div class="unit">Target ROAS</div>
+      <div class="aud-card">
+        <strong>Pillar 3: Faster Experience (June)</strong>
+        Gen Eds on your schedule. Revamped navigation + saved courses = done faster than a semester.
       </div>
     </div>
-
-    <div class="two-col">
-      <div class="card">
-        <h3>Approach</h3>
-        <div class="audience-list">
-          <div class="audience-item"><strong>Hook Campaign</strong> <span>— unified message across all channels at launch; competitor conquesting + price anchor</span></div>
-          <div class="audience-item" style="margin-top:6px"><strong>Spotlight Series</strong> <span>— drip content post-launch reinforcing key differentiators (Speed → Flexibility → Courses)</span></div>
-          <div class="audience-item" style="margin-top:6px"><strong>Strategy</strong> <span contenteditable="true">— high frequency in communities where target audiences are already active; message repetition to shift behavior and reposition vs. competitors</span></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Target Audiences</h3>
-        <div class="audience-list">
-          <div class="audience-item"><strong>B2C</strong> <span contenteditable="true">— in-market students at/considering online school; degree hackers</span></div>
-          <div class="audience-item"><strong>Advisors</strong> <span contenteditable="true">— university advisors guiding students toward transfer credits</span></div>
-          <div class="audience-item"><strong>Ambassadors</strong> <span contenteditable="true">— creators and influencers reaching prospective students via YouTube, TikTok, Reddit</span></div>
-          <div class="audience-item"><strong>Members</strong> <span contenteditable="true">— existing subscribers; drive retention, LTV, and feature adoption</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="two-col">
-      <div class="card">
-        <h3>Timeline</h3>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-text"><span class="date" contenteditable="true">[Date]</span><span class="desc" contenteditable="true">Finalize campaign concept + audience targets</span></div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-text"><span class="date" contenteditable="true">[Date]</span><span class="desc" contenteditable="true">Channel plan + budget / resource alignment</span></div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-text"><span class="date" contenteditable="true">[Date]</span><span class="desc" contenteditable="true">Asset creation + partner briefs</span></div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot active"></div>
-            <div class="tl-text"><span class="date" contenteditable="true">[Launch Date] 🚀</span><span class="desc" contenteditable="true">Full GTM — Hook launch (no-slip date)</span></div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-text"><span class="date" contenteditable="true">[Date]</span><span class="desc" contenteditable="true">Spotlight series begins</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Message Flight</h3>
-        <div class="spotlights" style="margin-bottom:10px">
-          <div class="spotlight s1">
-            <div class="sp-label">Hook</div>
-            <div class="sp-name" contenteditable="true">$95 + Conquest</div>
-            <div class="sp-date" contenteditable="true">[Date range]</div>
-          </div>
-          <div class="spotlight s2">
-            <div class="sp-label">Spotlight 1</div>
-            <div class="sp-name" contenteditable="true">Speed</div>
-            <div class="sp-date" contenteditable="true">[Date range]</div>
-          </div>
-          <div class="spotlight s3">
-            <div class="sp-label">Spotlight 2</div>
-            <div class="sp-name" contenteditable="true">Flexibility</div>
-            <div class="sp-date" contenteditable="true">[Date range]</div>
-          </div>
-        </div>
-        <div style="font-size:12px; color:#666" contenteditable="true">All channels run the hook, then drip spotlights. $[price] stays front and center throughout.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Channel Overview</h3>
-      <div class="channels-grid">
-        <div class="ch-item">
-          <div class="ch-name">Ambassador / Influencer</div>
-          <div class="ch-budget" contenteditable="true">Budget: $[X]</div>
-          <div class="ch-goal" contenteditable="true">Long-form videos + shorts; competitor comparison content</div>
-        </div>
-        <div class="ch-item">
-          <div class="ch-name">Paid Media</div>
-          <div class="ch-budget" contenteditable="true">Budget: $[X]</div>
-          <div class="ch-goal" contenteditable="true">PPC conquest + UGC amplification on TT/YT/Reddit</div>
-        </div>
-        <div class="ch-item">
-          <div class="ch-name">Lifecycle (Email + SMS)</div>
-          <div class="ch-budget" contenteditable="true">Budget: N/A</div>
-          <div class="ch-goal" contenteditable="true">Reg abandon → editorial → member; [X] incremental regs</div>
-        </div>
-        <div class="ch-item">
-          <div class="ch-name">Forums (Reddit / Degree Forum)</div>
-          <div class="ch-budget" contenteditable="true">Budget: $[X]</div>
-          <div class="ch-goal" contenteditable="true">Seeded posts + comment replies in top communities</div>
-        </div>
-        <div class="ch-item">
-          <div class="ch-name">College Advisors</div>
-          <div class="ch-budget" contenteditable="true">Budget: N/A</div>
-          <div class="ch-goal" contenteditable="true">Outreach email + shareable PDF; drive referrals</div>
-        </div>
-        <div class="ch-item">
-          <div class="ch-name">EO / Content</div>
-          <div class="ch-budget" contenteditable="true">Budget: N/A</div>
-          <div class="ch-goal" contenteditable="true">Pricing page + FAQ updates; press release for LLM accuracy</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Decisions Needed</h3>
-      <div class="decisions">
-        <div class="decision-item" contenteditable="true">Budget approval — $[X] total across paid + owned channels</div>
-        <div class="decision-item" contenteditable="true">Feedback on channel plan to achieve [X] incremental reg target</div>
-        <div class="decision-item" contenteditable="true">Optional lever: [e.g., 30% promo in Nov–Dec] — approve or hold?</div>
-      </div>
-    </div>
-
   </div>
 
-  <div class="footer">
-    <div class="owners">DRI: <span contenteditable="true">[Name]</span> · Paid: <span contenteditable="true">[Name]</span> · Lifecycle: <span contenteditable="true">[Name]</span> · Ambassadors: <span contenteditable="true">[Name]</span></div>
-    <div class="at-risk" contenteditable="true">⚠ At-risk channels: [e.g., Ambassador, Lifecycle — require fast turnaround]</div>
+  <div class="section">
+    <h2>Timeline</h2>
+    <ul class="timeline">
+      <li><div class="tl-date">By Apr 1</div><div>Finalize campaign concept, messaging, landing pages, course collections live</div></li>
+      <li><div class="tl-date">Apr 1 🚀</div><div><strong>Full GTM launch</strong> — Hook campaign goes live across all channels; Course Collections spotlight begins</div></li>
+      <li><div class="tl-date">Apr 3</div><div>AI Foundations Course available; Pillar 2 content activates</div></li>
+      <li><div class="tl-date">June</div><div>Revamped member experience live; Pillar 3 / UGC angle activates</div></li>
+      <li><div class="tl-date">End of June</div><div>Campaign closes; incremental lift analysis + hypothesis validation</div></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Channel Overview</h2>
+    <div class="channel-list">
+      <div class="ch">
+        <div class="ch-header"><div class="ch-name">Paid Media (TikTok, YouTube, Reddit, CTV, Podcast)</div><div class="ch-budget">$170K–$220K</div></div>
+        <div class="ch-desc">TikTok Spark Ads + creator amplification ($65K) · YouTube Demand Gen promoting Gen Ed walkthrough videos ($55K) · Reddit program-specific communities ($30K) · Optional CTV awareness push in May ($50K) · Podcast host-read test (TBD $20K). Expected: ~300–400 incremental regs.</div>
+      </div>
+      <div class="ch">
+        <div class="ch-header"><div class="ch-name">Owned (TikTok + YouTube)</div><div class="ch-budget">TBD</div></div>
+        <div class="ch-desc">UGC-style school/degree Gen Ed path walkthroughs. Angle: "If you're doing Gen Eds for [SCHOOL/DEGREE], don't guess—follow this path." 15–30s clips + screen records of course collections. 12–16 short-form videos needed.</div>
+      </div>
+      <div class="ch">
+        <div class="ch-header"><div class="ch-name">Lifecycle (Email + SMS)</div><div class="ch-budget">N/A</div></div>
+        <div class="ch-desc">Reg abandon recovery + conversion lift by theme. Baseline forecast: 620 regs (Apr–Jun). Key metric: reg abandon recovery rate.</div>
+      </div>
+      <div class="ch">
+        <div class="ch-header"><div class="ch-name">Advisor / Partnerships</div><div class="ch-budget">N/A</div></div>
+        <div class="ch-desc">Newsletter + email outreach + shareable PDF one-pager. Hook for advisors: "Unblock your students and keep them on track for graduation with Gen Eds at Study.com." Baseline forecast: 535 regs.</div>
+      </div>
+      <div class="ch">
+        <div class="ch-header"><div class="ch-name">SEO / GEO / Reddit / EO</div><div class="ch-budget">N/A</div></div>
+        <div class="ch-desc">Coverage for "gen eds + major/career/school" queries. School-specific landing pages + partner degree pathway pages. Baseline forecast: 782 regs. Key metric: rank lift + indexing on program-specific queries.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="decisions">
+    <h2 style="border-color:#fed7aa; color:#9a3412;">Decisions Needed</h2>
+    <ul>
+      <li><strong>Hook sign-off</strong> — Are we aligned on <em>"Complete your Gen Eds faster and for less with Study.com College Saver"</em> as the campaign hook across all channels?</li>
+      <li><strong>Course Collections naming</strong>
+        <div style="background:#fff8f8;border:1px solid #fecaca;border-radius:8px;padding:14px 16px;margin-top:10px;font-size:13px;color:#1a1a1a;line-height:1.6;">
+          <div style="margin-bottom:8px;"><strong>Bundles are 'Course Collections'</strong></div>
+          <div style="margin-bottom:8px;"><strong>'transfer pathways'</strong> — reserved for full degree/program; a curated list of how to get as far as possible with Study.com towards a specific degree at a specific school.</div>
+          <div style="margin-bottom:10px;">We present as:</div>
+          <div style="font-size:15px;font-weight:800;margin-bottom:10px;">{Promo Copy} Course Collections</div>
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:8px 12px;margin-bottom:6px;">GCU Finance Courses</div>
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:8px 12px;margin-bottom:12px;">UMGC BS Computer Science transfer pathway</div>
+          <div style="margin-bottom:6px;"><strong>How we use it:</strong></div>
+          <ul style="padding-left:18px;margin-bottom:10px;">
+            <li>"Course collection" is the default term across all channels – ads, landing pages, social, advisor materials</li>
+            <li>We use functional names for anything that's NOT a transfer pathway. For example, 'GCU Nursing Prereqs'</li>
+            <li>Use "course collections" as the concept, but don't force it into every sentence like it's a product name. It's a strong CTA to just use the collection name: "you can get your GCU nursing prereqs at study.com"</li>
+          </ul>
+          <div><strong>Guiding principle: don't overbrand it.</strong> It's not a product — it's a simple, helpful way to describe what we're offering. The closer we stay to how students talk, the better it lands.</div>
+        </div>
+      </li>
+    </ul>
   </div>
 
 </div>
