@@ -37,21 +37,40 @@
   .ch-name { font-weight: 700; font-size: 13px; }
   .ch-budget { font-size: 12px; color: #0f172a; background: #e0f2fe; border-radius: 4px; padding: 1px 7px; font-weight: 600; }
   .ch-desc { font-size: 12.5px; color: #475569; line-height: 1.5; }
-  .decisions { background: #fff7ed; border: 1.5px solid #fed7aa; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; }
-  .decisions ul { padding-left: 16px; font-size: 13.5px; line-height: 1.8; color: #431407; }
   .positioning { background: #f0f9ff; border: 1.5px solid #bae6fd; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; }
   .pos-row { display: flex; gap: 10px; margin-bottom: 6px; font-size: 13px; }
   .pos-row:last-child { margin-bottom: 0; }
   .pos-label { min-width: 120px; font-weight: 700; color: #0369a1; font-size: 12px; }
   .pos-text { color: #0c4a6e; }
   hr.divider { border: none; border-top: 1px solid #e2e8f0; margin: 24px 0; }
+  /* Pillar cards */
+  .pillar-card { background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+  .pillar-card.may { background: #f0fdf4; border-color: #86efac; }
+  .pillar-card.jun { background: #fdf4ff; border-color: #e9d5ff; }
+  .pillar-card h3 { font-size: 13px; font-weight: 700; color: #1d4ed8; margin-bottom: 8px; }
+  .pillar-card.may h3 { color: #166534; }
+  .pillar-card.jun h3 { color: #7e22ce; }
+  .pillar-card .msg-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: #94a3b8; margin-bottom: 3px; }
+  .pillar-card .spotlight { font-size: 13px; color: #334155; margin-bottom: 10px; }
+  .pillar-card .short { font-size: 13px; font-style: italic; color: #1e3a5f; line-height: 1.5; }
+  .pillar-card.may .short { color: #14532d; }
+  .pillar-card.jun .short { color: #4a1d96; }
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 0; }
+  th { background: #f1f5f9; color: #475569; font-weight: 700; text-align: left; padding: 7px 10px; border-bottom: 1px solid #e2e8f0; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+  td { padding: 7px 10px; border-bottom: 1px dashed #e2e8f0; vertical-align: top; color: #334155; }
+  tr:last-child td { border-bottom: none; }
+  td strong { color: #0f172a; }
+  .forecast-table td:not(:first-child) { text-align: right; }
+  .forecast-table th:not(:first-child) { text-align: right; }
+  .forecast-table tr:last-child td { font-weight: 700; color: #0f172a; background: #f8fafc; }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <div class="badge">90% Complete</div>
-  <h1>Gen Eds April Release GTM</h1>
+  <div class="badge">100% Complete</div>
+  <h1>🎓 Gen Eds April Release GTM</h1>
   <div class="meta">Q2 2026 · Emily &amp; Akshya · March 2026</div>
 
   <div class="launch-bar">
@@ -59,48 +78,60 @@
   </div>
 
   <div class="goal-box">
-    Drive <strong>+997 incremental College Saver registrations in Q2</strong> through a hook + spotlight campaign anchored on <em>"Complete your Gen Eds faster and for less with Study.com College Saver."</em> Target: ~75% YoY growth (vs. 62% baseline).
+    Drive <strong>+997 incremental College Saver registrations in Q2</strong> through a hook + spotlight campaign anchored on <em>"Complete your gen eds faster and for less with online college courses for credit from Study.com College Saver."</em> Target: ~75% YoY growth (vs. 62% baseline). Also functions as a growth accelerant to <strong>outperform Q2 targets and ease Q3/Q4 pressure</strong>.
   </div>
 
   <div class="metrics">
     <div class="metric"><div class="val">+997</div><div class="lbl">Incremental Reg Target</div></div>
     <div class="metric"><div class="val">13,521</div><div class="lbl">Q2 Reg Goal (Total)</div></div>
-    <div class="metric"><div class="val">$170K</div><div class="lbl">Mid Funnel Budget</div></div>
+    <div class="metric"><div class="val">$170K</div><div class="lbl">Demand Gen Budget</div></div>
     <div class="metric"><div class="val">75%</div><div class="lbl">YoY Growth Target</div></div>
   </div>
 
   <div class="positioning">
-    <div class="pos-row"><div class="pos-label">Positioning:</div><div class="pos-text">Study.com College Saver is the <strong>simplest, fastest, most affordable</strong> way to complete Gen Eds.</div></div>
-    <div class="pos-row"><div class="pos-label">Hook:</div><div class="pos-text"><strong>Complete your Gen Eds faster and for less with Study.com College Saver.</strong></div></div>
+    <div class="pos-row"><div class="pos-label">Positioning:</div><div class="pos-text">Study.com College Saver is the <strong>simplest, fastest, most affordable</strong> way to complete gen eds.</div></div>
+    <div class="pos-row"><div class="pos-label">Hook:</div><div class="pos-text"><strong>Complete your gen eds faster and for less with online college courses for credit from Study.com College Saver.</strong></div></div>
     <div class="pos-row" style="flex-direction:column;gap:4px;">
       <div class="pos-label"></div>
       <ul style="padding-left:18px;margin:0;color:#0c4a6e;font-size:13px;line-height:1.8;">
         <li><strong>Get:</strong> Enrolled and soon to enroll online college students</li>
-        <li><strong>To:</strong> Subscribe to College Saver</li>
-        <li><strong>By:</strong> Promoting it as the fastest, most affordable way to get their Gen Eds done</li>
+        <li><strong>To:</strong> Subscribe to Study.com College Saver</li>
+        <li><strong>By:</strong> Promoting it as the fastest, most affordable way to get their gen eds done</li>
       </ul>
     </div>
   </div>
 
-  <!-- Target Audiences ABOVE Approach -->
+  <!-- Target Audiences -->
   <div class="section">
     <h2>Target Audiences</h2>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
-      <div class="aud-card"><strong>B2C Students</strong>Enrolled &amp; soon-to-enroll online college students who need Gen Eds</div>
-      <div class="aud-card"><strong>Partner Advisors</strong>University advisors guiding students toward Gen Ed completion &amp; transfer credits</div>
+      <div class="aud-card"><strong>B2C Students</strong>Enrolled &amp; soon-to-enroll online college students who need gen eds</div>
+      <div class="aud-card"><strong>Partner-school Advisors</strong>University advisors guiding students toward gen ed completion &amp; graduation</div>
       <div class="aud-card"><strong>Career/Major Seekers</strong>Nursing, WGU, GCU &amp; program-specific pre-req students</div>
+    </div>
+    <div style="margin-top:10px;">
+      <table>
+        <thead><tr><th>Audience</th><th>Hook</th></tr></thead>
+        <tbody>
+          <tr><td><strong>B2C Students</strong></td><td>Finish your gen eds faster and for less with online college courses for credit from Study.com College Saver.</td></tr>
+          <tr><td><strong>Partner-school Advisors</strong></td><td>Unblock your students and keep them on track for graduation with gen eds and Electives at Study.com.</td></tr>
+          <tr><td><strong>Career/Major Seekers (e.g., Nursing)</strong></td><td>Complete the gen eds + prereqs you need with Study.com to stay on track for your program.</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
+  <!-- Approach -->
   <div class="section">
-    <h2>Approach</h2>
+    <h2>GTM Approach</h2>
     <ul>
       <li><strong>Hook Campaign</strong> — consistent Gen Ed + College Saver positioning across all channels Apr–Jun</li>
       <li><strong>Spotlight Series</strong> — rotate spotlights under the hook: Course Collections (Apr) → AI Course (late Apr–May) → Revamped Experience (Jun)</li>
-      <li><strong>Strategy</strong> — saturate Gen Ed "faster + for less" value prop</li>
+      <li><strong>Strategy</strong> — saturate Gen Ed "faster + for less" value prop across paid, owned, SEO, lifecycle, and advisor channels</li>
     </ul>
   </div>
 
+  <!-- Message Pillars -->
   <div class="section">
     <h2>Message Pillars</h2>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
@@ -108,72 +139,115 @@
       <div class="pill may">Late Apr/May — AI Course</div>
       <div class="pill jun">June — Revamped Experience</div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px;">
-      <div class="aud-card"><strong>Pillar 1: Transfer Confidence (Apr 1)</strong>Know exactly which Gen Eds you need — by school, degree, or both. Course collections remove the guesswork.</div>
-      <div class="aud-card"><strong>Pillar 2: AI for College Credit (Apr 3)</strong>Earn elective credits while learning skills employers want — starting with AI Foundations.</div>
-      <div class="aud-card"><strong>Pillar 3: Revamped Experience (June)</strong>Gen Eds on your schedule. Revamped navigation + saved courses = done faster than a semester.</div>
+
+    <div class="pillar-card">
+      <h3>Pillar 1: Transfer Confidence <span style="font-weight:400;font-size:11px;">(available April 1)</span></h3>
+      <div class="msg-label">Spotlight</div>
+      <div class="spotlight">Course Collections — school/program-aligned course lists (Overall, By School, By School + Degree) that reduce guesswork and build confidence the credit will transfer.</div>
+      <div class="msg-label">Short (ads/social)</div>
+      <div class="short">We did the hard work. Your exact gen eds list is ready — knock them out for less with Study.com College Saver.</div>
+    </div>
+
+    <div class="pillar-card may">
+      <h3>Pillar 2: Learn AI for College Credit <span style="font-weight:400;font-size:11px;">(available April 3)</span></h3>
+      <div class="msg-label">Spotlight</div>
+      <div class="spotlight">AI Course — earn elective credit while learning practical AI skills employers actually want. Plus 10 additional gen ed courses in the $95 plan (physics, astronomy, and more).</div>
+      <div class="msg-label">Short (ads/social)</div>
+      <div class="short">Elective credit + real AI skills. One course, two wins.</div>
+    </div>
+
+    <div class="pillar-card jun">
+      <h3>Pillar 3: Faster Progress <span style="font-weight:400;font-size:11px;">(available June)</span></h3>
+      <div class="msg-label">Spotlight</div>
+      <div class="spotlight">Revamped experience — easier navigation, saved courses, engaging short-form lessons, and 2-day transcript transfer. Heavy UGC/social angle.</div>
+      <div class="msg-label">Short (ads/social)</div>
+      <div class="short">Flexible gen ed courses with videos that actually help you learn.</div>
     </div>
   </div>
 
-  <div class="decisions">
-    <h2 style="border-color:#fed7aa; color:#9a3412;">Decisions Needed</h2>
-    <ul>
-      <li><strong>Hook sign-off</strong> — Are we aligned on <em>"Complete your Gen Eds faster and for less with Study.com College Saver"</em> as the campaign hook across all channels?</li>
-      <li><strong>Course Collections naming</strong>
-        <div style="background:#fff8f8;border:1px solid #fecaca;border-radius:8px;padding:14px 16px;margin-top:10px;font-size:13px;color:#1a1a1a;line-height:1.6;">
-          <div style="margin-bottom:8px;"><strong>Bundles are 'Course Collections'</strong></div>
-          <div style="margin-bottom:8px;"><strong>'transfer pathways'</strong> — reserved for full degree/program; a curated list of how to get as far as possible with Study.com towards a specific degree at a specific school.</div>
-          <div style="margin-bottom:10px;">We present as:</div>
-          <div style="font-size:15px;font-weight:800;margin-bottom:10px;">{Promo Copy} Course Collections</div>
-          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:8px 12px;margin-bottom:6px;">GCU Finance Courses</div>
-          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:8px 12px;margin-bottom:12px;">UMGC BS Computer Science transfer pathway</div>
-          <div style="margin-bottom:6px;"><strong>How we use it:</strong></div>
-          <ul style="padding-left:18px;margin-bottom:10px;">
-            <li>"Course collection" is the default term across all channels – ads, landing pages, social, advisor materials</li>
-            <li>We use functional names for anything that's NOT a transfer pathway. For example, 'GCU Nursing Prereqs'</li>
-            <li>Use "course collections" as the concept, but don't force it into every sentence like it's a product name. It's a strong CTA to just use the collection name: "you can get your GCU nursing prereqs at study.com"</li>
-          </ul>
-          <div><strong>Guiding principle: don't overbrand it.</strong> It's not a product — it's a simple, helpful way to describe what we're offering. The closer we stay to how students talk, the better it lands.</div>
-        </div>
-      </li>
-    </ul>
+  <!-- How We'll Win -->
+  <div class="section">
+    <h2>How We'll Win This Launch</h2>
+    <table>
+      <thead><tr><th>Focus</th><th>Objective</th><th>Channels</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1) Hook-led Gen Ed positioning</strong></td><td>Build awareness and drive incremental regs by saturating the Gen Ed value prop ("faster + for less")</td><td>Paid social, Owned (TikTok/YouTube), SEO, Lifecycle</td></tr>
+        <tr><td><strong>2) Advisor activation</strong></td><td>Increase advisor confidence + referrals with a clear "what to recommend" list</td><td>Advisor comms (newsletter/email) + shareable PDF/one-pager</td></tr>
+        <tr><td><strong>3) Community/Peer proof</strong></td><td>Earn trust and reduce skepticism with student walkthroughs + UGC</td><td>Reddit, Creators/Influencers, Owned video</td></tr>
+        <tr><td><strong>4) School-specific course lists pilot</strong></td><td>Prove "program-fit" improves conversion (less guesswork → more saves/enrollments)</td><td>SEO/GEO, Web landing pages + advisor sharing + targeted Paid social/PPC</td></tr>
+      </tbody>
+    </table>
   </div>
 
+  <!-- Reg Forecast -->
+  <div class="section">
+    <h2>Reg / Revenue Forecast by Channel</h2>
+    <table class="forecast-table">
+      <thead>
+        <tr><th>Channel</th><th>Apr</th><th>May</th><th>Jun</th><th>Baseline Total</th><th>Incremental</th><th>GTM Goal</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Direct</td><td>1,980</td><td>2,468</td><td>2,689</td><td>7,137</td><td>—</td><td>—</td></tr>
+        <tr><td>Ambassador / Creator</td><td>452</td><td>458</td><td>520</td><td>1,430</td><td>+0</td><td>—</td></tr>
+        <tr><td>Paid</td><td>593</td><td>632</td><td>795</td><td>2,020</td><td>—</td><td>—</td></tr>
+        <tr><td>Advisor URL</td><td>180</td><td>188</td><td>167</td><td>535</td><td>—</td><td>—</td></tr>
+        <tr><td>SEO / EO</td><td>209</td><td>301</td><td>272</td><td>782</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>3,651</strong></td><td><strong>4,249</strong></td><td><strong>4,623</strong></td><td><strong>12,524</strong></td><td><strong>+997</strong></td><td><strong>13,521</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Timeline -->
   <div class="section">
     <h2>Timeline</h2>
     <ul class="timeline">
       <li><div class="tl-date">By Apr 1</div><div>Finalize campaign concept, messaging, landing pages, course collections live</div></li>
       <li><div class="tl-date">Apr 1 🚀</div><div><strong>Full GTM launch</strong> — Hook campaign goes live across all channels; Course Collections spotlight begins</div></li>
       <li><div class="tl-date">Apr 3</div><div>AI Foundations Course available; Pillar 2 content activates</div></li>
+      <li><div class="tl-date">Late Apr–May</div><div>AI Course spotlight rotates in; CTV awareness test (~$50K, pending approval)</div></li>
       <li><div class="tl-date">June</div><div>Revamped member experience live; Pillar 3 / UGC angle activates</div></li>
       <li><div class="tl-date">End of June</div><div>Campaign closes; incremental lift analysis + hypothesis validation</div></li>
     </ul>
   </div>
 
+  <!-- Channel Overview -->
   <div class="section">
     <h2>Channel Overview</h2>
     <div class="channel-list">
       <div class="ch">
-        <div class="ch-header"><div class="ch-name">Paid Media (TikTok, YouTube, Reddit, CTV, Podcast)</div><div class="ch-budget">$170K–$220K</div></div>
-        <div class="ch-desc">TikTok Spark Ads + creator amplification ($65K) · YouTube Demand Gen promoting Gen Ed walkthrough videos ($55K) · Reddit program-specific communities ($30K) · Optional CTV awareness push in May ($50K) · Podcast host-read test (TBD $20K). Expected: ~300–400 incremental regs.</div>
+        <div class="ch-header"><div class="ch-name">Paid Media (TikTok, YouTube, Reddit, CTV, Podcast)</div><div class="ch-budget">$170K demand gen + $50K CTV test</div></div>
+        <div class="ch-desc">TikTok Spark Ads + Creator Marketplace ($65K) · YouTube Demand Gen — existing gen ed walkthrough videos ($55K) · Reddit program-specific subreddits r/WGU, r/prenursing, r/college ($30K) · CTV awareness test in May ($50K, pending) · Podcast host-read test ($20K). Expected: ~300–400 incremental regs.</div>
       </div>
       <div class="ch">
-        <div class="ch-header"><div class="ch-name">Owned (TikTok + YouTube)</div><div class="ch-budget">TBD</div></div>
-        <div class="ch-desc">UGC-style school/degree Gen Ed path walkthroughs. Angle: "If you're doing Gen Eds for [SCHOOL/DEGREE], don't guess—follow this path." 15–30s clips + screen records of course collections. 12–16 short-form videos needed.</div>
+        <div class="ch-header"><div class="ch-name">Owned Media (Ambassador / TikTok / YouTube)</div><div class="ch-budget">Existing budget</div></div>
+        <div class="ch-desc">UGC-style school/degree Gen Ed path walkthroughs. Angle: "If you're doing gen eds for [SCHOOL/DEGREE], don't guess—follow this path." Mix of long-form YouTube, Shorts, and TikTok Reels. 12–16 short-form videos needed. Premium partners: Jody, Josh, Clifford. Influencers across WGU, Nursing, Business angles.</div>
       </div>
       <div class="ch">
-        <div class="ch-header"><div class="ch-name">Lifecycle (Email + SMS)</div><div class="ch-budget">N/A</div></div>
-        <div class="ch-desc">Reg abandon recovery + conversion lift by theme. Baseline forecast: 620 regs (Apr–Jun). Key metric: reg abandon recovery rate.</div>
+        <div class="ch-header"><div class="ch-name">Advisor / Partnerships</div><div class="ch-budget">None</div></div>
+        <div class="ch-desc">Goal: 2,227 advisor-referred regs. Newsletter + email outreach + shareable PDF one-pager. Push course collections as primary advisor confidence tool. Hard push on WGU non-compete courses. Baseline forecast: 535 regs from advisor URL channel.</div>
       </div>
       <div class="ch">
-        <div class="ch-header"><div class="ch-name">Advisor / Partnerships</div><div class="ch-budget">N/A</div></div>
-        <div class="ch-desc">Newsletter + email outreach + shareable PDF one-pager. Hook for advisors: "Unblock your students and keep them on track for graduation with Gen Eds at Study.com." Baseline forecast: 535 regs.</div>
-      </div>
-      <div class="ch">
-        <div class="ch-header"><div class="ch-name">SEO / GEO / Reddit / EO</div><div class="ch-budget">N/A</div></div>
-        <div class="ch-desc">Coverage for "gen eds + major/career/school" queries. School-specific landing pages + partner degree pathway pages. Baseline forecast: 782 regs. Key metric: rank lift + indexing on program-specific queries.</div>
+        <div class="ch-header"><div class="ch-name">SEO / GEO / Reddit / EO</div><div class="ch-budget">TBD</div></div>
+        <div class="ch-desc">Coverage for "gen eds + major/career/school" queries. School-specific landing pages for 10 partner schools (WGU, GCU, UOPX, Liberty, UMGC, Thomas Edison, SNHU, Purdue Global, UMPI, UAGC) + partner degree pathway pages (UMGC 5 confirmed, Purdue Global masters prereqs). Baseline forecast: 782 regs.</div>
       </div>
     </div>
+  </div>
+
+  <!-- Ownership -->
+  <div class="section">
+    <h2>Ownership</h2>
+    <table>
+      <thead><tr><th>Area</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td>Campaign concept + Gen Ed messaging</td><td>Emily + Akshya</td></tr>
+        <tr><td>Paid media</td><td>Martin</td></tr>
+        <tr><td>Owned media (TikTok / YouTube)</td><td>Matt / Kathy</td></tr>
+        <tr><td>Advisor</td><td>Krista</td></tr>
+        <tr><td>SEO / GEO / Reddit</td><td>Saurabh</td></tr>
+        <tr><td>Growth product / web updates</td><td>Kyle</td></tr>
+        <tr><td>Tracking + reporting</td><td>Kyle + Akshya</td></tr>
+      </tbody>
+    </table>
   </div>
 
 </div>
